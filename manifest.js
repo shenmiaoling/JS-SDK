@@ -2,12 +2,12 @@ const fs = require('fs')
 const webpackAssets = './assets/webpack-assets.json'
 const manifest = fs.existsSync(webpackAssets) ? require(webpackAssets) : {}
 
-module.exports = manifest.packages ? manifest : {
+module.exports = manifest.vendors ? manifest : {
   index: {
     js: 'application.js',
     css: 'application.css'
   },
-  packages: {
-    js: 'packages.js'
+  vendors: {
+    js: 'vendors.js'
   }
 }

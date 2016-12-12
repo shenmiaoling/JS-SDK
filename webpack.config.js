@@ -37,9 +37,7 @@ module.exports = {
       },
       {
         test: /\.styl$/,
-        loader: 'style-loader!css-loader!stylus-loader',
-        exclude: /node_modules/,
-        include: __dirname
+        loader:  ExtractTextPlugin.extract('style-loader', 'css-loader!stylus-loader')
       },
       {
         test: /\.(jpeg|jpg|png|gif)$/,
