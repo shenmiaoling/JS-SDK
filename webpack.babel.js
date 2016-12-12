@@ -34,8 +34,10 @@ module.exports = {
         loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
       },
       {
-        test: /\.sass$/,
-        loader: ExtractTextPlugin.extract('style-loader', sassLoaders.join('!'))
+        test: /\.styl$/,
+        loader: 'style-loader!css-loader!stylus-loader',
+        exclude: /node_modules/,
+        include: __dirname
       },
       {
         test: /\.(jpeg|jpg|png|gif)$/,
@@ -58,6 +60,6 @@ module.exports = {
     })
   ],
   resolve: {
-    extensions: ['', '.js', '.jsx', '.css', '.sass', '.json']
+    extensions: ['', '.js', '.jsx', '.css', '.styl', '.json']
   }
 }
